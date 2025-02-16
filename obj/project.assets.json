@@ -7743,11 +7743,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\femal\\source\\repos\\CMS_API\\CMS_API\\CMS_API.csproj",
+      "projectUniqueName": "C:\\Users\\femal\\source\\repos\\CMS_API\\CMS_API.csproj",
       "projectName": "CMS_API",
-      "projectPath": "C:\\Users\\femal\\source\\repos\\CMS_API\\CMS_API\\CMS_API.csproj",
+      "projectPath": "C:\\Users\\femal\\source\\repos\\CMS_API\\CMS_API.csproj",
       "packagesPath": "C:\\Users\\femal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\femal\\source\\repos\\CMS_API\\CMS_API\\obj\\",
+      "outputPath": "C:\\Users\\femal\\source\\repos\\CMS_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
