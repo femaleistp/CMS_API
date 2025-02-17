@@ -1,0 +1,23 @@
+# Ignore build and debug files
+bin/
+obj/
+**/bin/
+**/obj/
+.vs/
+wwwroot/
+Areas/
+Pages/
+ScaffoldingReadMe.txt
+
+# Ignore logs
+*.log
+logs/
+npm-debug.log*
+
+# Ignore environment settings
+appsettings.Development.json
+.env
+
+# Ignore IDE specific files
+.idea/
+.vscode/

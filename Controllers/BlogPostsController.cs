@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CMS_API.Data;
 using CMS_API.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace CMS_API.Controllers
 {
@@ -21,7 +23,8 @@ namespace CMS_API.Controllers
             _context = context;
         }
 
-        // GET: api/BlogPosts
+        // GET: api/BlogPosts 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BlogPost>>> GetBlogPost()
         {
@@ -29,6 +32,7 @@ namespace CMS_API.Controllers
         }
 
         // GET: api/BlogPosts/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<ActionResult<BlogPost>> GetBlogPost(int id)
         {
@@ -44,6 +48,7 @@ namespace CMS_API.Controllers
 
         // PUT: api/BlogPosts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBlogPost(int id, BlogPost blogPost)
         {
@@ -75,9 +80,14 @@ namespace CMS_API.Controllers
 
         // POST: api/BlogPosts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<BlogPost>> PostBlogPost(BlogPost blogPost)
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);  // Get logged in userid
+
+            blogPost.UserId = userId ?? string.Empty;
+
             _context.BlogPost.Add(blogPost);
             await _context.SaveChangesAsync();
 
@@ -85,6 +95,7 @@ namespace CMS_API.Controllers
         }
 
         // DELETE: api/BlogPosts/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBlogPost(int id)
         {

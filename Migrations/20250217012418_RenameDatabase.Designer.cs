@@ -4,6 +4,7 @@ using CMS_API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CMS_API.Migrations
 {
     [DbContext(typeof(CMS_APIContext))]
-    partial class CMS_APIContextModelSnapshot : ModelSnapshot
+    [Migration("20250217012418_RenameDatabase")]
+    partial class RenameDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,24 +88,6 @@ namespace CMS_API.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "550e8400-e29b-41d4-a716-446655440000",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "8c53efe6-37c7-43d7-848b-923a54308539",
-                            Email = "testuser@example.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "TESTUSER@EXAMPLE.COM",
-                            NormalizedUserName = "TESTUSER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKHThnbUeYENSY2U8OdspULiPBnFIvVj48qYTeaf3qUZjxHW50fhklpE3g6bEx0ncA==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "550e8400-e29b-41d4-a716-446655440001",
-                            TwoFactorEnabled = false,
-                            UserName = "testuser"
-                        });
                 });
 
             modelBuilder.Entity("CMS_API.Models.BlogPost", b =>
@@ -124,13 +109,7 @@ namespace CMS_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("BlogPost");
 
@@ -140,16 +119,14 @@ namespace CMS_API.Migrations
                             Id = 1,
                             Content = "This is a sample blog post.",
                             CreatedAt = new DateTime(2024, 2, 1, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "First Blog Post",
-                            UserId = "550e8400-e29b-41d4-a716-446655440000"
+                            Title = "First Blog Post"
                         },
                         new
                         {
                             Id = 2,
                             Content = "Another post for testing.",
                             CreatedAt = new DateTime(2024, 2, 1, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Second Blog Post",
-                            UserId = "550e8400-e29b-41d4-a716-446655440000"
+                            Title = "Second Blog Post"
                         });
                 });
 
@@ -217,13 +194,7 @@ namespace CMS_API.Migrations
                     b.Property<DateTime>("SubmittedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Feedback");
 
@@ -234,8 +205,7 @@ namespace CMS_API.Migrations
                             Email = "alice@example.com",
                             Message = "Great website!",
                             Name = "Alice",
-                            SubmittedAt = new DateTime(2024, 2, 1, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = "550e8400-e29b-41d4-a716-446655440000"
+                            SubmittedAt = new DateTime(2024, 2, 1, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -243,8 +213,7 @@ namespace CMS_API.Migrations
                             Email = "bob@example.com",
                             Message = "Needs improvement.",
                             Name = "Bob",
-                            SubmittedAt = new DateTime(2024, 2, 1, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = "550e8400-e29b-41d4-a716-446655440000"
+                            SubmittedAt = new DateTime(2024, 2, 1, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -267,13 +236,7 @@ namespace CMS_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("StaticPage");
 
@@ -283,16 +246,14 @@ namespace CMS_API.Migrations
                             Id = 1,
                             Content = "Welcome to our site!",
                             CreatedAt = new DateTime(2024, 2, 1, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Home",
-                            UserId = "550e8400-e29b-41d4-a716-446655440000"
+                            Title = "Home"
                         },
                         new
                         {
                             Id = 2,
                             Content = "About us page content.",
                             CreatedAt = new DateTime(2024, 2, 1, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "About",
-                            UserId = "550e8400-e29b-41d4-a716-446655440000"
+                            Title = "About"
                         });
                 });
 
@@ -431,39 +392,6 @@ namespace CMS_API.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("CMS_API.Models.BlogPost", b =>
-                {
-                    b.HasOne("CMS_API.Areas.Identity.Data.BlogUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("CMS_API.Models.Feedback", b =>
-                {
-                    b.HasOne("CMS_API.Areas.Identity.Data.BlogUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("CMS_API.Models.StaticPage", b =>
-                {
-                    b.HasOne("CMS_API.Areas.Identity.Data.BlogUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

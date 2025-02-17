@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CMS_API.Data;
 using CMS_API.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CMS_API.Controllers
 {
@@ -22,6 +23,7 @@ namespace CMS_API.Controllers
         }
 
         // GET: api/StaticPages
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<StaticPage>>> GetStaticPage()
         {
@@ -29,6 +31,7 @@ namespace CMS_API.Controllers
         }
 
         // GET: api/StaticPages/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<ActionResult<StaticPage>> GetStaticPage(int id)
         {
@@ -44,6 +47,7 @@ namespace CMS_API.Controllers
 
         // PUT: api/StaticPages/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutStaticPage(int id, StaticPage staticPage)
         {
@@ -75,6 +79,7 @@ namespace CMS_API.Controllers
 
         // POST: api/StaticPages
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<StaticPage>> PostStaticPage(StaticPage staticPage)
         {
@@ -85,6 +90,7 @@ namespace CMS_API.Controllers
         }
 
         // DELETE: api/StaticPages/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStaticPage(int id)
         {

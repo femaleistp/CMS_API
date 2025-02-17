@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CMS_API.Data;
 using CMS_API.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CMS_API.Controllers
 {
@@ -22,6 +23,7 @@ namespace CMS_API.Controllers
         }
 
         // GET: api/BusinessContacts
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BusinessContact>>> GetBusinessContact()
         {
@@ -29,6 +31,7 @@ namespace CMS_API.Controllers
         }
 
         // GET: api/BusinessContacts/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<ActionResult<BusinessContact>> GetBusinessContact(int id)
         {
@@ -44,6 +47,7 @@ namespace CMS_API.Controllers
 
         // PUT: api/BusinessContacts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBusinessContact(int id, BusinessContact businessContact)
         {
@@ -75,6 +79,7 @@ namespace CMS_API.Controllers
 
         // POST: api/BusinessContacts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<BusinessContact>> PostBusinessContact(BusinessContact businessContact)
         {
@@ -85,6 +90,7 @@ namespace CMS_API.Controllers
         }
 
         // DELETE: api/BusinessContacts/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBusinessContact(int id)
         {

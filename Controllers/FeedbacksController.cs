@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CMS_API.Data;
 using CMS_API.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CMS_API.Controllers
 {
@@ -22,6 +23,7 @@ namespace CMS_API.Controllers
         }
 
         // GET: api/Feedbacks
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Feedback>>> GetFeedback()
         {
@@ -29,6 +31,7 @@ namespace CMS_API.Controllers
         }
 
         // GET: api/Feedbacks/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<ActionResult<Feedback>> GetFeedback(int id)
         {
@@ -44,6 +47,7 @@ namespace CMS_API.Controllers
 
         // PUT: api/Feedbacks/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFeedback(int id, Feedback feedback)
         {
@@ -75,6 +79,7 @@ namespace CMS_API.Controllers
 
         // POST: api/Feedbacks
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Feedback>> PostFeedback(Feedback feedback)
         {
@@ -85,6 +90,7 @@ namespace CMS_API.Controllers
         }
 
         // DELETE: api/Feedbacks/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFeedback(int id)
         {
