@@ -13,8 +13,7 @@ namespace CMS_API.Models
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         // Link to User
-        [Required]
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
 
         [ForeignKey("UserId")]
         public virtual BlogUser? User { get; set; }
