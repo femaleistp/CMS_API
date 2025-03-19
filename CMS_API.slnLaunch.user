@@ -8,7 +8,7 @@
         "DebugTarget": "https"
       },
       {
-        "Path": "..\\CMS_FRONTEND\\CMS_FRONTEND.esproj",
+        "Path": "CMS_FRONTEND\\CMS_FRONTEND.esproj",
         "Action": "Start",
         "DebugTarget": "localhost (Chrome)"
       }

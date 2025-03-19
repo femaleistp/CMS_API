@@ -1,0 +1,2 @@
+C:\Users\femal\source\repos\CMS_FRONTEND\obj\Debug\CMS_FRONTEND.esproj.CoreCompileInputs.cache
+C:\Users\femal\source\repos\CMS_API\CMS_FRONTEND\obj\Debug\CMS_FRONTEND.esproj.CoreCompileInputs.cache
