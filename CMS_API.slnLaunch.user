@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "FullStack",
+    "Projects": [
+      {
+        "Path": "CMS_API.csproj",
+        "Action": "StartWithoutDebugging",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "..\\CMS_FRONTEND\\CMS_FRONTEND.esproj",
+        "Action": "Start",
+        "DebugTarget": "localhost (Chrome)"
+      }
+    ]
+  }
+]
