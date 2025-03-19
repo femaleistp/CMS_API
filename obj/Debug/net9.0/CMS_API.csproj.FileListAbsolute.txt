@@ -696,3 +696,4 @@ C:\Users\femal\source\repos\CMS_API\bin\Debug\net9.0\CMS_FRONTEND\src\proxy.conf
 C:\Users\femal\source\repos\CMS_API\bin\Debug\net9.0\CMS_FRONTEND\tsconfig.app.json
 C:\Users\femal\source\repos\CMS_API\bin\Debug\net9.0\CMS_FRONTEND\tsconfig.json
 C:\Users\femal\source\repos\CMS_API\bin\Debug\net9.0\CMS_FRONTEND\tsconfig.spec.json
+C:\Users\femal\source\repos\CMS_API\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
