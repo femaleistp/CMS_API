@@ -131,7 +131,7 @@ namespace CMS_API.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("BlogPost");
+                    b.ToTable("BlogPost", (string)null);
 
                     b.HasData(
                         new
@@ -174,7 +174,7 @@ namespace CMS_API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BusinessContact");
+                    b.ToTable("BusinessContact", (string)null);
 
                     b.HasData(
                         new
@@ -224,7 +224,7 @@ namespace CMS_API.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Feedback");
+                    b.ToTable("Feedback", (string)null);
 
                     b.HasData(
                         new
@@ -274,7 +274,7 @@ namespace CMS_API.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("StaticPage");
+                    b.ToTable("StaticPage", (string)null);
 
                     b.HasData(
                         new
